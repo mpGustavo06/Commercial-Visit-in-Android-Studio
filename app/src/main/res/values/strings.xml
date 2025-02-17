@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">VisitaComercial</string>
+    <string name="selecione_cidade">Selecione a cidade</string>
+    <string name="cadastrar_cliente">Cadastrar Cliente</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="razao_social">Razão Social</string>
+    <string name="nome_fantasia">Nome Fantasia</string>
+    <string name="contato">Contato</string>
+    <string name="telefone">Telefone</string>
+    <string name="email">E-mail</string>
+    <string name="cep">CEP</string>
+    <string name="buscar_endereco">Buscar</string>
+    <string name="logradouro">Logradouro</string>
+    <string name="bairro">Bairro</string>
+    <string name="numero">Número</string>
+    <string name="salvar_cliente">Cadastrar</string>
+    <string name="adicionar_visita">Adicionar Visita</string>
+    <string name="cidade">Cidade</string>
 </resources>

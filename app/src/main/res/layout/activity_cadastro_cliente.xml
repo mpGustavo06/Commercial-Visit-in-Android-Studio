@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CadastroClienteActivity">
+
+    <!-- Linha Divisória -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginVertical="10dp"
+        />
+
+    <!-- Linha de Buscar Endereco VIACEP -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="90sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="CEP: "
+            />
+
+        <EditText
+            android:id="@+id/editTextCep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="160dp"
+            android:layout_marginRight="20dp"
+            android:hint="91155245"
+            android:inputType="text" />
+
+        <!-- Botão para buscar o endereço a partir do CEP -->
+        <Button
+            android:id="@+id/buttonBuscarEndereco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="buscarEndereco"
+            android:text="@string/buscar_endereco" />
+    </TableRow>
+
+    <!-- Linha Divisória -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginVertical="10dp"
+        />
+
+    <!-- Linha de Cadastro de CNPJ -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="CNPJ: "
+            />
+
+        <EditText
+            android:id="@+id/editTextCnpj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/cnpj"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Razão Social -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Razão Social:"
+            />
+
+        <EditText
+            android:id="@+id/editTextRazaoSocial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/razao_social"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Nome Fantasia -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Nome Fantasia:"
+            />
+
+        <EditText
+            android:id="@+id/editTextNomeFantasia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/nome_fantasia"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Telefone -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Telefone:"
+            />
+
+        <EditText
+            android:id="@+id/editTextTelefone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/telefone"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de E-mail -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="E-mail:"
+            />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/email"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha Divisória -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginVertical="10dp"
+        />
+
+    <!-- Linha de Cadastro de Cidade -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Cidade:"
+            />
+
+        <EditText
+            android:id="@+id/editTextCidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/cidade"
+            android:inputType="text" />
+
+        <!-- Spinner para selecionar a cidade -->
+<!--        <Spinner-->
+<!--            android:id="@+id/spinnerCities"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:minHeight="40dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:prompt="@string/selecione_cidade" />-->
+    </TableRow>
+
+    <!-- Linha de Cadastro de Bairro -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Bairro:"
+            />
+
+        <EditText
+            android:id="@+id/editTextBairro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/bairro"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Bairro -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Logradouro:"
+            />
+
+        <EditText
+            android:id="@+id/editTextLogradouro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/logradouro"
+            android:inputType="text" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Bairro -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Número:"
+            />
+
+        <EditText
+            android:id="@+id/editTextNumero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/numero"
+            android:inputType="number" />
+    </TableRow>
+
+    <!-- Botões Cadastrar, AdicionarVisita -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/buttonSalvarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="salvarCliente"
+            android:text="@string/salvar_cliente" />
+    </TableRow>
+
+    <EditText
+        android:id="@+id/editTextIbge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="260dp"
+        android:layout_marginRight="20dp"
+        android:inputType="text"
+        android:visibility="invisible" />
+</LinearLayout>
