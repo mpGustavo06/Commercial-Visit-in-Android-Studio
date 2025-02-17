@@ -2,11 +2,13 @@ package com.example.visitacomercial.Models;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity(tableName = "visits")
-public class Visit
+@Entity(tableName = "visitas")
+public class Visita implements Serializable
 {
     @PrimaryKey(autoGenerate = true)
     public Long id;
@@ -17,18 +19,7 @@ public class Visit
     public double orderValue;
     public String notes;
 
-    public Visit(Long id, String clientCnpj, Date date, int satisfaction, double orderValue, String notes)
-    {
-        this.id = id;
-        this.clientCnpj = clientCnpj;
-        this.date = date;
-        this.satisfaction = satisfaction;
-        this.orderValue = orderValue;
-        this.notes = notes;
-    }
-
-    public Visit() { }
-
+    ////////////////////////////////////////////////////////////////////////////////////////////
     public Long getId() {
         return id;
     }
@@ -81,8 +72,8 @@ public class Visit
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Visit visit = (Visit) o;
-        return Objects.equals(id, visit.id);
+        Visita visita = (Visita) o;
+        return Objects.equals(id, visita.id);
     }
 
     @Override
@@ -92,7 +83,7 @@ public class Visit
 
     @Override
     public String toString() {
-        return "Visit{" +
+        return "Visita{" +
                 "id=" + id +
                 ", cnpjCliente='" + clientCnpj + '\'' +
                 ", data=" + date +
