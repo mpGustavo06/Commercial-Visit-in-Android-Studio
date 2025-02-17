@@ -40,6 +40,9 @@ dependencies {
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
     implementation ("androidx.appcompat:appcompat:1.3.1")
     implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.facebook.stetho:stetho:1.6.0")
+    implementation ("com.google.code.gson:gson:2.8.9")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
 
     implementation(libs.appcompat)
     implementation(libs.material)
