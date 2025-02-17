@@ -1,19 +1,22 @@
 package com.example.visitacomercial.Models;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity(tableName = "clients")
-public class Client
+@Entity(tableName = "clientes")
+public class Cliente implements Serializable
 {
     @PrimaryKey
+    @NonNull
     public String cnpj;
 
     public String socialReason;
     public String fantasyName;
-    public String contact;
     public String phone;
     public String email;
     public Date lastVisit;
@@ -23,24 +26,7 @@ public class Client
     public String number;
     public Long ibgeCity;
 
-    public Client(String cnpj, String socialReason, String fantasyName, String contact, String phone, String email, Date lastVisit, String zipCode, String street, String district, String number, Long ibgeCity)
-    {
-        this.cnpj = cnpj;
-        this.socialReason = socialReason;
-        this.fantasyName = fantasyName;
-        this.contact = contact;
-        this.phone = phone;
-        this.email = email;
-        this.lastVisit = lastVisit;
-        this.zipCode = zipCode;
-        this.street = street;
-        this.district = district;
-        this.number = number;
-        this.ibgeCity = ibgeCity;
-    }
-
-    public Client() { }
-
+    ////////////////////////////////////////////////////////////////////////////////////////////
     public String getCnpj() {
         return cnpj;
     }
@@ -63,14 +49,6 @@ public class Client
 
     public void setFantasyName(String fantasyName) {
         this.fantasyName = fantasyName;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
     }
 
     public String getPhone() {
@@ -141,8 +119,8 @@ public class Client
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return Objects.equals(cnpj, client.cnpj);
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(cnpj, cliente.cnpj);
     }
 
     @Override
@@ -152,11 +130,10 @@ public class Client
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "Cliente{" +
                 "cnpj='" + cnpj + '\'' +
                 ", razaoSocial='" + socialReason + '\'' +
                 ", nomeFantasia='" + fantasyName + '\'' +
-                ", contato='" + contact + '\'' +
                 ", telefone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", ultimaVisita=" + lastVisit +
