@@ -2,26 +2,32 @@ package com.example.visitacomercial.Models;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.io.Serializable;
 import java.util.Objects;
 
-@Entity(tableName = "cities")
-public class City
+@Entity(tableName = "cidades")
+public class Cidade implements Serializable
 {
     @PrimaryKey
     public Long ibge;
 
     public String name;
     public String ddd;
+    public String uf;
 
-    public City(Long ibge, String name, String ddd)
+    public Cidade(Long l, String s, String s1, String s2)
     {
-        this.ibge = ibge;
-        this.name = name;
-        this.ddd = ddd;
+        this.ibge = l;
+        this.name = s;
+        this.ddd = s1;
+        this.uf = s2;
     }
 
-    public City() { }
+    public Cidade()
+    {}
 
+    //--------------------------------------------------------------------------------------------//
     public Long getIbge() {
         return ibge;
     }
@@ -46,12 +52,21 @@ public class City
         this.ddd = ddd;
     }
 
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    //--------------------------------------------------------------------------------------------//
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        City city = (City) o;
-        return Objects.equals(ibge, city.ibge);
+        Cidade cidade = (Cidade) o;
+        return Objects.equals(ibge, cidade.ibge);
     }
 
     @Override
@@ -61,10 +76,11 @@ public class City
 
     @Override
     public String toString() {
-        return "City{" +
+        return "Cidade{" +
                 "ibge=" + ibge +
                 ", name='" + name + '\'' +
                 ", ddd='" + ddd + '\'' +
+                ", uf='" + uf + '\'' +
                 '}';
     }
 }
