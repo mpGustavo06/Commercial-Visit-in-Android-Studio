@@ -36,7 +36,7 @@ This repository contains the source code of an Android application designed to a
 
 3. Run the app on an emulator or physical device.
 
-##Project Structure
+## Project Structure
 - Models: Entity classes such as Cliente (Customer), Cidade (City), and Visita (Visit).
 - DAO: Database access interfaces using Room.
 - Adapters: Adapters for ListView and Spinner.
