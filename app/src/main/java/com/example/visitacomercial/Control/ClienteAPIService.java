@@ -26,9 +26,6 @@ public interface ClienteAPIService
     @Query("SELECT * FROM clientes ORDER BY lastVisit ASC")
     LiveData<List<Cliente>> getClients();
 
-    @Query("SELECT * FROM clientes WHERE ibgeCity = :ibgeCity ORDER BY lastVisit ASC")
-    LiveData<List<Cliente>> getClientPerCity(Long ibgeCity );
-
-    @Query("SELECT * FROM clientes WHERE cnpj = :cnpj")
-    LiveData<List<Cliente>> getClientPerCnpj(String cnpj );
+    @Query("SELECT * FROM clientes WHERE ibgeCity = :ibge ORDER BY lastVisit ASC")
+    LiveData<List<Cliente>> getClientPerCity(Long ibge );
 }

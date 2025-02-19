@@ -18,6 +18,7 @@ public class Cliente implements Serializable
     public String socialReason;
     public String fantasyName;
     public String phone;
+    public String contactPerson;
     public String email;
     public Date lastVisit;
     public String zipCode;
@@ -26,6 +27,10 @@ public class Cliente implements Serializable
     public String number;
     public Long ibgeCity;
 
+    public Cliente()
+    {
+        this.lastVisit = new Date();
+    }
     ////////////////////////////////////////////////////////////////////////////////////////////
     public String getCnpj() {
         return cnpj;
@@ -115,6 +120,14 @@ public class Cliente implements Serializable
         this.ibgeCity = ibgeCity;
     }
 
+    public String getContactPerson() {
+        return contactPerson;
+    }
+
+    public void setContactPerson(String contactPerson) {
+        this.contactPerson = contactPerson;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -132,16 +145,17 @@ public class Cliente implements Serializable
     public String toString() {
         return "Cliente{" +
                 "cnpj='" + cnpj + '\'' +
-                ", razaoSocial='" + socialReason + '\'' +
-                ", nomeFantasia='" + fantasyName + '\'' +
-                ", telefone='" + phone + '\'' +
+                ", socialReason='" + socialReason + '\'' +
+                ", fantasyName='" + fantasyName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", contactPerson='" + contactPerson + '\'' +
                 ", email='" + email + '\'' +
-                ", ultimaVisita=" + lastVisit +
-                ", CEP='" + zipCode + '\'' +
-                ", logradouro='" + street + '\'' +
-                ", bairro='" + district + '\'' +
-                ", numero='" + number + '\'' +
-                ", ibgeCidade=" + ibgeCity +
+                ", lastVisit=" + lastVisit +
+                ", zipCode='" + zipCode + '\'' +
+                ", street='" + street + '\'' +
+                ", district='" + district + '\'' +
+                ", number='" + number + '\'' +
+                ", ibgeCity=" + ibgeCity +
                 '}';
     }
 }
