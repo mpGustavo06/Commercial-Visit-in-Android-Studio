@@ -12,22 +12,26 @@ import androidx.room.Room;
 import com.example.visitacomercial.Database.AppDatabase;
 import com.example.visitacomercial.Models.Cidade;
 
+import java.util.ArrayList;
+
 public class CidadeDAO implements LifecycleOwner {
     private AppDatabase database;
     private CidadeAPIService cidadeAPIService;
     private Lifecycle lifecycle;
-    private boolean cidadeExiste;
+    private boolean cidadeExiste = true;
+
+    private ArrayList<Cidade> cidadesList = null;
 
     public CidadeDAO(Context context, Lifecycle lifecycle)
     {
         database = Room.databaseBuilder(context, AppDatabase.class, "app_database").build();
-        cidadeAPIService = database.cidadeDAO();
+        cidadeAPIService = database.cidadeService();
 
         this.lifecycle = lifecycle;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    public void inserirCidade(Cidade newCidade)
+    public boolean inserirCidade(Cidade newCidade)
     {
         try
         {
@@ -41,11 +45,13 @@ public class CidadeDAO implements LifecycleOwner {
                 }
             }.start();
             Log.d("INSERT.CTY.SUCCESS", "Cidade inserida com sucesso.");
+            return true;
         }
         catch ( Exception e )
         {
             e.printStackTrace();
             Log.d("INSERT.CTY.ERROR", "ERRO: "+e.getMessage());
+            return false;
         }
     }
 
@@ -95,6 +101,28 @@ public class CidadeDAO implements LifecycleOwner {
         }
     }
 
+    //--------------------------------------------------------------------------------------------//
+    public ArrayList<Cidade> getCidades()
+    {
+        Log.d("GET.CIDADES", "INICIO");
+
+        cidadeAPIService.getCities().observe(this, cidades -> {
+            if (cidades != null)
+            {
+                cidadesList = new ArrayList<>(cidades);
+                Log.d("GET.CIDADES.SUCCESS", "Cidades obtidas com sucesso.");
+            }
+            else
+            {
+                Log.d("GET.CTY.ERROR", "Erro ao obter cidades.");
+                throw new IllegalStateException("Erro ao obter cidades.");
+            }
+        });
+
+        Log.d("GET.CIDADES", "FIM: "+cidadesList);
+        return cidadesList;
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////
     public boolean verificarCidadeExiste(Long ibge)
     {
@@ -103,13 +131,11 @@ public class CidadeDAO implements LifecycleOwner {
         cidadeAPIService.getCityPerIbge(ibge).observe( this, cidade -> {
             if (cidade != null)
             {
-                // Cidade encontrada, faça algo com ela
                 Log.d("CTY.EXIST.SUCESS", "Cidade encontrada: " + cidade.getName() + " - IBGE: " + cidade.getIbge());
                 cidadeExiste = true;
             }
             else
             {
-                // Cidade não encontrada, trate o caso de null
                 Log.d("CTY.EXIST.ERROR", "Cidade não encontrada para o IBGE: " + ibge);
                 cidadeExiste = false;
             }
