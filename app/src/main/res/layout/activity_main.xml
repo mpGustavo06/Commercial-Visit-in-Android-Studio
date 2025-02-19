@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/item_background"
     tools:context=".MainActivity">
 
     <!-- Linha Divisória -->
@@ -58,8 +59,17 @@
             android:id="@+id/buttonCadastrarCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cadastrar_cliente"
+            android:layout_marginRight="30dp"
+            android:text="Cadastrar"
             android:onClick="abrirCadastroCliente"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonVisita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionar Visita"
+            android:onClick="abrirCadastroVisita"
             android:textSize="16sp" />
     </TableRow>
 </LinearLayout>
