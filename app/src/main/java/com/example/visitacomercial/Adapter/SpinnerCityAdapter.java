@@ -69,11 +69,4 @@ public class SpinnerCityAdapter extends ArrayAdapter<Cidade>
 
         return convertView;
     }
-
-    public void updateData(List<Cidade> newCities)
-    {
-        cities.clear();
-        cities.addAll(newCities);
-        notifyDataSetChanged();
-    }
 }
