@@ -30,7 +30,7 @@ This repository contains the source code of an Android application designed to a
 ## How to Use
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/repository-name.git
+   git clone https://github.com/mpGustavo06/Commercial-Visit-in-Android-Studio.git
    
 2. Open the project in Android Studio.
 
