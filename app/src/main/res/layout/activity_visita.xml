@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VisitaActivity">
+
+    <!-- Linha Divisória -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginVertical="10dp"
+        />
+
+    <!-- Linha de Cadastro de Cliente -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Cliente: "
+            />
+
+        <!-- Spinner para selecionar o cliente -->
+        <Spinner
+            android:id="@+id/spinnerClientesVisita"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:layout_marginRight="20dp"
+            android:prompt="@string/selecione_cidade" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Data da Visita -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Data:"
+            />
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextVisitaData"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:minWidth="260dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:hint="22-08-2003"-->
+<!--            android:inputType="date" />-->
+
+        <EditText
+            android:id="@+id/editData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Clique para escolher a data"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de valor -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Valor:"
+            />
+
+        <EditText
+            android:id="@+id/editTextValorOrdem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="250,55"
+            android:inputType="numberDecimal" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Obs -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Observação:"
+            />
+
+        <EditText
+            android:id="@+id/editTextObservacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="260dp"
+            android:layout_marginRight="20dp"
+            android:hint="Clique para escrever"
+            android:inputType="none"
+            android:clickable="true"
+            android:focusable="false" />
+    </TableRow>
+
+    <!-- Linha de Cadastro de Satisfacao -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="130sp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Satistação:"
+            />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1"
+            android:rating="3"
+            android:layout_marginRight="20dp"
+            android:isIndicator="false"
+            android:scaleX="0.7"
+            android:scaleY="0.7"/>
+    </TableRow>
+
+    <!-- Linha Divisória -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginVertical="10dp"
+        />
+
+    <!-- Botões Cadastrar, AdicionarVisita -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/buttonAdicionarVisita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="adicionarVisita"
+            android:text="Adicionar Visita" />
+    </TableRow>
+</LinearLayout>
